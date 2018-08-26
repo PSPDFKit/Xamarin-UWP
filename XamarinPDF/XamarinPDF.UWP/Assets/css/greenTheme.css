@@ -1,0 +1,74 @@
+/* Main Toolbar */
+
+.PSPDFKit-Toolbar {
+  background: #11a700;
+}
+
+.PSPDFKit-Page-Indicator-Label,
+.PSPDFKit-Page-Indicator label,
+.PSPDFKit-Page-Indicator-Input {
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+.PSPDFKit-Page-Indicator-Prev,
+.PSPDFKit-Page-Indicator-Next {
+  border-radius: 0;
+}
+
+.PSPDFKit-Page-Indicator-Prev:hover,
+.PSPDFKit-Page-Indicator-Next:hover {
+  background: #1c3a00;
+}
+
+.PSPDFKit-Page-Indicator-Prev-disabled span,
+.PSPDFKit-Page-Indicator-Next-disabled span {
+  fill: #95ab00 !important;
+}
+
+.PSPDFKit-Toolbar .PSPDFKit-Toolbar-Button {
+  border: none;
+}
+
+.PSPDFKit-Toolbar .PSPDFKit-Toolbar-Button:hover,
+.PSPDFKit-Toolbar .PSPDFKit-Toolbar-Button:focus {
+  background: #3c6500;
+}
+
+.PSPDFKit-Toolbar .PSPDFKit-Toolbar-Button-active {
+  background: #55d700;
+  color: #fff;
+}
+
+/* Annotation Toolbar */
+
+.PSPDFKit-Text-Annotation-Toolbar,
+.PSPDFKit-Ink-Annotation-Toolbar,
+.PSPDFKit-Note-Annotation-Toolbar {
+  background: #f3f3f3;
+  border-bottom-color: #d6d6d6;
+  box-shadow: none;
+}
+
+.PSPDFKit-Text-Annotation-Toolbar .PSPDFKit-Toolbar-Button:hover,
+.PSPDFKit-Ink-Annotation-Toolbar .PSPDFKit-Toolbar-Button:hover,
+.PSPDFKit-Note-Annotation-Toolbar .PSPDFKit-Toolbar-Button:hover {
+  background: #d2d2d2;
+}
+
+.PSPDFKit-Input-Dropdown-Button,
+.PSPDFKit-Text-Annotation-Toolbar-Alignment-left,
+.PSPDFKit-Text-Annotation-Toolbar-Alignment-right {
+  border-radius: 0 !important;
+}
+
+.PSPDFKit-Input-Dropdown-Button,
+.PSPDFKit-Input-Slider-Value {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Viewport */
+
+.PSPDFKit-Viewport {
+  background: #dfdfdf;
+}

@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="XamarinPDF.UWP.Pages.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XamarinPDF.UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:PSPDFKit.UI"
+    mc:Ignorable="d"
+	Style="{StaticResource PageStyle}">
+
+	<Grid Margin="{StaticResource MediumLeftRightMargin}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--  Adaptive triggers  -->
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="WindowStates">
+				<VisualState x:Name="WideState">
+					<VisualState.StateTriggers>
+						<AdaptiveTrigger MinWindowWidth="640"/>
+					</VisualState.StateTriggers>
+				</VisualState>
+				<VisualState x:Name="NarrowState">
+					<VisualState.StateTriggers>
+						<AdaptiveTrigger MinWindowWidth="0"/>
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="TitlePage.Margin" Value="48,0,12,7"/>
+					</VisualState.Setters>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+
+		<TextBlock
+            x:Uid="SearchPage_Title"
+			Text="Search from Code"
+            Style="{StaticResource PageTitleStyle}" />
+
+		<Grid Grid.Row="1" >
+			<SplitView DisplayMode="Inline" IsPaneOpen="True" OpenPaneLength="250">
+				<SplitView.Pane>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="48"/>
+						</Grid.RowDefinitions>
+						<ListBox ItemsSource="{x:Bind ViewModel.SearchResults}" Grid.Row="0">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock TextWrapping="WrapWholeWords">
+                                        <Run Text="{Binding BeforeQuery}" />
+                                        <Run FontWeight="Bold" Foreground="Red" Text="{Binding SearchQuery}"/>
+                                        <Run Text="{Binding AfterQuery}"/>
+									</TextBlock>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+						<Button Grid.Row="1" Command="{x:Bind ViewModel.DoSearchCommand}" Content="Search" HorizontalAlignment="Center"/>
+					</Grid>
+				</SplitView.Pane>
+				<Grid>
+					<ui:PdfView Grid.Row="0" License="{StaticResource PSPDFKitLicense}"  PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" Name="PDFView" />
+				</Grid>
+			</SplitView>
+		</Grid>
+	</Grid>
+</Page>

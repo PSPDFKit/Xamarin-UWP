@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:XamarinPDF.Views;assembly=XamarinPDF"
+             x:Class="XamarinPDF.Views.CustomCssPage">
+    <ContentPage.Content>
+	    <Grid Margin="12,0,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="48"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<Label Text="Custom CSS" FontSize="Large" FontAttributes="Bold" />
+			</StackLayout>
+
+			<Grid Grid.Row="1">
+				<!--  Custom CSS is set in the `Css` property  -->
+				<views:PdfViewer
+					License="{StaticResource PSPDFKitLicense}"
+					PdfUriSource="ms-appx:///Assets/pdfs/default.pdf"
+					Css="ms-appx-web:///Assets/css/greenTheme.css"/>
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

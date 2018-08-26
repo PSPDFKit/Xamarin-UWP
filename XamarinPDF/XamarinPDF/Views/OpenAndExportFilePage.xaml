@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:XamarinPDF.Views;assembly=XamarinPDF"
+             xmlns:viewModels="clr-namespace:XamarinPDF.ViewModels;assembly=XamarinPDF"
+             x:Class="XamarinPDF.Views.OpenAndExportFilePage">
+	<ContentPage.BindingContext>
+		<viewModels:OpenAndExportFileViewModel />
+	</ContentPage.BindingContext>
+    <ContentPage.Content>
+	    <Grid Margin="12,0,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="48"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<Label Text="Open and Export a PDF File" FontSize="Large" FontAttributes="Bold" />
+			</StackLayout>
+
+			<Grid Grid.Row="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="50"/>
+				</Grid.RowDefinitions>
+				<views:PdfViewer Grid.Row="0"
+				                 License="{StaticResource PSPDFKitLicense}"
+				                 PdfFileSource="{Binding CurrentPdfFile, Mode=TwoWay}"
+				                 ShowMessage="Please press the 'Open' button to open a Pdf."
+				                 x:Name="PdfView"/>
+				<StackLayout Grid.Row="1" Orientation="Horizontal">
+					<Button Text="Open" Command="{Binding OpenPdfCommand}" Margin="10, 0, 0, 0" x:Name="OpenButton"/>
+					<Button Text="Save To Same File" Command="{Binding SavePdfCommand}" CommandParameter="{Binding Source={x:Reference PdfView}}" Margin="10, 0, 0, 0"/>
+					<Button Text="Export To New File" Command="{Binding ExportNewPdfCommand}" CommandParameter="{Binding Source={x:Reference PdfView}}" Margin="10, 0, 0, 0"/>
+					<StackLayout Orientation="Horizontal" Margin="30, 0, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+						<Label Text="Flatten Annotations" FontSize="Medium"/>
+						<Switch IsToggled="{Binding FlattenAnnotations, Mode=TwoWay}"/>
+					</StackLayout>
+				</StackLayout>
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:XamarinPDF.ViewModels;assembly=XamarinPDF"
+             x:Class="XamarinPDF.Views.AboutPage">
+	<ContentPage.BindingContext>
+		<viewModels:AboutPageViewModel/>
+	</ContentPage.BindingContext>
+    <ContentPage.Content>
+	    <Grid Margin="12,0,12,0">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="48"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<Label Text="About" FontSize="Large" FontAttributes="Bold" />
+			</StackLayout>
+
+			<Grid Grid.Row="1">
+				<Label Text="{Binding LicenseText, Mode=TwoWay}"
+				       VerticalOptions="StartAndExpand" 
+				       HorizontalOptions="StartAndExpand" />
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
