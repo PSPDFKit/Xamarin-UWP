@@ -5,7 +5,7 @@
 //  Please see License for details. This notice may not be removed from this file.
 //
 
-using PSPDFKit.UI;
+using PSPDFKit.UI.ToolbarComponents;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +16,6 @@ using XamarinPDF.DependencyServices;
 using XamarinPDF.UWP.DependencyServicesImpl;
 using XamarinPDF.UWP.PageRenderers;
 using XamarinPDF.Views;
-using ToolbarItem = PSPDFKit.UI.ToolbarItem;
 
 [assembly: Dependency (typeof (ToolbarItemsImplementation))]
 namespace XamarinPDF.UWP.DependencyServicesImpl {
@@ -31,15 +30,17 @@ namespace XamarinPDF.UWP.DependencyServicesImpl {
 			if (view == null)
 				return;
 
-			var toolbarItem = new ToolbarItem {
-				Type = ToolbarItemType.Custom,
-				Id = "id",
-				Title = "Button",
-				Icon = new Uri ("ms-appx-web:///Assets/ToolbarIcons/status_completed.svg")
+            var toolbarItem = new ButtonToolbarItem {
+                Attributes =
+                {
+                    Id = "id",
+                    Title = "Button"
+                },
+                Icon = new Uri ("ms-appx-web:///Assets/ToolbarIcons/status_completed.svg")
 			};
 			toolbarItem.OnItemPressEvent += ToolbarItem_OnPress;
 
-			var toolbarItems = view.GetToolbarItems ();
+			var toolbarItems = view.GetToolbarItems();
 			toolbarItems.Add (toolbarItem);
 			await view.SetToolbarItemsAsync (toolbarItems);
 		}
@@ -64,11 +65,11 @@ namespace XamarinPDF.UWP.DependencyServicesImpl {
 		/// </summary>
 		/// <param name="toolbarItem">The toolbar item that was clicked</param>
 		/// <param name="id">The id of the toolbar item</param>
-		async void ToolbarItem_OnPress (ToolbarItem toolbarItem, string id)
+		async void ToolbarItem_OnPress (IToolbarItem toolbarItem, string id)
 		{
 			var locationPromptDialog = new ContentDialog {
 				Title = "Custom Dialog",
-				Content = toolbarItem.Title + " was pressed.",
+				Content = toolbarItem.Attributes.Title + " was pressed.",
 				PrimaryButtonText = "OK"
 			};
 
