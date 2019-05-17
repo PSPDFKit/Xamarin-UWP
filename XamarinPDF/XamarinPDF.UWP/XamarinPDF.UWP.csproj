@@ -11,6 +11,7 @@
     <RootNamespace>XamarinPDF.UWP</RootNamespace>
     <AssemblyName>XamarinPDF.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
+    <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
