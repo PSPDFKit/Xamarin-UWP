@@ -60,7 +60,7 @@ namespace XamarinPDF.UWP.ViewModels {
 			};
 		}
 
-		async void APIOnSearchResultHandler (TextSearcher sender, IPageResults pageResults)
+		async void APIOnSearchResultHandler (TextSearcher sender, PageResults pageResults)
 		{
 			// Dispatch on the Controller thread, otherwise updating the `SearchResults` list will throw an exception.
 			await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync (CoreDispatcherPriority.Normal, () => {
@@ -95,7 +95,7 @@ namespace XamarinPDF.UWP.ViewModels {
 		///     The SearchResultFormatter formats the search result to make it look nicer when displaying in the Controller.
 		/// </summary>
 		public class SearchResultFormatter {
-			public SearchResultFormatter (IResult result)
+			public SearchResultFormatter (Result result)
 			{
 				Result = result;
 
@@ -110,7 +110,7 @@ namespace XamarinPDF.UWP.ViewModels {
 			/// <summary>
 			///     The search result.
 			/// </summary>
-			public IResult Result { get; }
+			public Result Result { get; }
 
 			/// <summary>
 			///     The part of the text before the query.
