@@ -8,9 +8,6 @@
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary>
-					<x:String x:Key="PSPDFKitLicense">LICENSE_KEY_GOES_HERE</x:String>
-				</ResourceDictionary>
 				<ResourceDictionary Source="/Styles/_Colors.xaml" />
 				<ResourceDictionary Source="/Styles/_FontSizes.xaml" />
 				<ResourceDictionary Source="/Styles/_Thickness.xaml" />
