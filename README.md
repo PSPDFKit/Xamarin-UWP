@@ -18,7 +18,7 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 In order to build this project you need:
 
 * Windows 10
-* Visual Studio 2017
+* Visual Studio 2017 or 2019
 * PSPDFKit for Windows.vsix Visual Studio Extension ([get your trial here](https://pspdfkit.com/try/))
 * [Visual Studio Tools for Xamarin](https://visualstudio.microsoft.com/xamarin/)
 * Getting familiar with [Xamarin.Forms UWP project setup](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/platform/windows/installation/).
