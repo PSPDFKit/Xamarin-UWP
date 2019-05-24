@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
+using PSPDFKit.Document;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 using XamarinPDF.DependencyServices;
@@ -43,9 +44,9 @@ namespace XamarinPDF.UWP.DependencyServicesImpl {
 				return;
 
 			if (flattenAnnotations)
-				await renderer.PdfDocView?.Document.ExportFlattenedAsync (file);
+				await renderer.PdfDocView?.Document.ExportAsync(file, new DocumentExportOptions{Flattened = true});
 			else
-				await renderer.PdfDocView?.Document.ExportAsync (file);
+				await renderer.PdfDocView?.Document.ExportAsync(file);
 		}
 
 		public async Task ExportNewPdf (PdfViewer pdfViewer, bool flattenAnnotations = false)
@@ -61,9 +62,9 @@ namespace XamarinPDF.UWP.DependencyServicesImpl {
 					return;
 
 				if (flattenAnnotations)
-					await renderer.PdfDocView?.Document.ExportFlattenedAsync (file);
-				else
-					await renderer.PdfDocView?.Document.ExportAsync (file);
+					await renderer.PdfDocView?.Document.ExportAsync(file, new DocumentExportOptions { Flattened = true });
+                else
+					await renderer.PdfDocView?.Document.ExportAsync(file);
 			} catch (Exception e) {
 				var messageDialog = new MessageDialog (e.Message);
 				await messageDialog.ShowAsync ();

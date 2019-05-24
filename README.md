@@ -18,17 +18,16 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 In order to build this project you need:
 
 * Windows 10
-* Visual Studio 2017
+* Visual Studio 2017 or 2019
 * PSPDFKit for Windows.vsix Visual Studio Extension ([get your trial here](https://pspdfkit.com/try/))
 * [Visual Studio Tools for Xamarin](https://visualstudio.microsoft.com/xamarin/)
 * Getting familiar with [Xamarin.Forms UWP project setup](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/platform/windows/installation/).
 
 ### Running the sample project
 
-Open `XamarinPDF.sln` using Visual Studio 2017 and add your license key as a String value in both `App.xaml` files listed below:
+Open `XamarinPDF.sln` using Visual Studio 2017 and add your license key as a String value in the `App.xaml` files listed below:
 
 * [XamarinPDF/XamarinPDF/App.xaml](XamarinPDF/XamarinPDF/App.xaml)
-* [XamarinPDF/XamarinPDF.UWP/App.xaml](XamarinPDF/XamarinPDF.UWP/App.xaml)
 
 Replace `LICENSE_KEY_GOES_HERE` with your provided license from the PSPDFKit customer portal or trial key.
 
