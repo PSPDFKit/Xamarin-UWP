@@ -24,7 +24,6 @@
 					<RowDefinition Height="50"/>
 				</Grid.RowDefinitions>
 				<views:PdfViewer Grid.Row="0"
-				                 License="{StaticResource PSPDFKitLicense}"
 				                 PdfFileSource="{Binding CurrentPdfFile, Mode=TwoWay}"
 				                 ShowMessage="Please press the 'Open' button to open a Pdf."
 				                 x:Name="PdfView"/>

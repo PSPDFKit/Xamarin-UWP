@@ -17,7 +17,6 @@
 			<Grid Grid.Row="1">
 				<!--  Custom CSS is set in the `Css` property  -->
 				<views:PdfViewer
-					License="{StaticResource PSPDFKitLicense}"
 					PdfUriSource="ms-appx:///Assets/pdfs/default.pdf"
 					Css="ms-appx-web:///Assets/css/greenTheme.css"/>
 			</Grid>

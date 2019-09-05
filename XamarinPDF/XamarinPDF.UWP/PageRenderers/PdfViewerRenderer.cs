@@ -27,8 +27,6 @@ namespace XamarinPDF.UWP.PageRenderers {
 				return;
 
 			PdfDocView = new PdfView {
-				// See if we sent license from X.F side else look in main App.xaml
-				License = e.NewElement.License ?? Application.Current.Resources.MergedDictionaries.FirstOrDefault (r => r.ContainsKey ("PSPDFKitLicense"))? ["PSPDFKitLicense"]?.ToString (),
 				PdfUriSource = e.NewElement.PdfUriSource is null ? null : new Uri (e.NewElement.PdfUriSource),
 				Css = e.NewElement.Css is null ? null : new Uri (e.NewElement.Css),
 				PdfFileSource = e.NewElement.PdfFileSource as StorageFile,

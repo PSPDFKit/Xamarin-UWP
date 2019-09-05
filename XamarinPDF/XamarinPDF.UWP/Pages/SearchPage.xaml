@@ -62,7 +62,7 @@
 					</Grid>
 				</SplitView.Pane>
 				<Grid>
-					<ui:PdfView Grid.Row="0" License="{StaticResource PSPDFKitLicense}"  PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" Name="PDFView" />
+					<ui:PdfView Grid.Row="0" PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" Name="PDFView" />
 				</Grid>
 			</SplitView>
 		</Grid>

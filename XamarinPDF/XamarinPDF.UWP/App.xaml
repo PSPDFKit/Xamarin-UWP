@@ -13,8 +13,11 @@
 				<ResourceDictionary Source="/Styles/_Thickness.xaml" />
 				<ResourceDictionary Source="/Styles/TextBlock.xaml" />
 				<ResourceDictionary Source="/Styles/Page.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
+                <ResourceDictionary>
+                    <x:String x:Key="PSPDFKitLicense">YOUR_LICENSE_KEY_GOES_HERE</x:String>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
 	</Application.Resources>
 
 </Application>
