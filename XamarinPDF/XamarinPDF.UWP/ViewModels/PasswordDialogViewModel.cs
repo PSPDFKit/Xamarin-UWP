@@ -22,7 +22,6 @@ namespace XamarinPDF.UWP.ViewModels {
 	/// This example demonstrates how to use a provide a native password input dialog.
 	/// </summary>
 	public class PasswordDialogViewModel : Observable {
-		StorageFile currentPdfFile;
 		ICommand openPdfCommand;
 		ICommand openPdfApiCommand;
 
