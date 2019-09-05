@@ -23,6 +23,8 @@ namespace XamarinPDF.UWP.ViewModels {
 
 		public PdfView PDFView { get; private set; }
 
+        private float LastZoomFactor = 0.0f;
+
 		internal void Initialize (PdfView pdfView)
 		{
 			PDFView = pdfView;
@@ -36,10 +38,21 @@ namespace XamarinPDF.UWP.ViewModels {
 				document.AnnotationsCreated += (view, annotations) => { AnnotationEvent ("created", annotations); };
 				document.AnnotationsDeleted += (view, annotations) => { AnnotationEvent ("deleted", annotations); };
 				document.AnnotationsUpdated += (view, annotations) => { AnnotationEvent ("updated", annotations); };
-			};
+
+                sender.Controller.OnCurrentPageChanged += (controller, currentPage) => Events.Add($"Changed to page {currentPage}");
+
+                sender.OnViewStateChanged += (controller, viewState) =>
+                {
+                    if (viewState.ZoomFactor != LastZoomFactor)
+                    {
+                        LastZoomFactor = viewState.ZoomFactor;
+                        Events.Add($"ViewState changed: ZoomFactor {LastZoomFactor}");
+                    }
+                };
+            };
 		}
 
-		void AnnotationEvent (string eventSource, ICollection<IAnnotation> annotations)
+        void AnnotationEvent (string eventSource, ICollection<IAnnotation> annotations)
 		{
 			var eventMessage = $"{annotations.Count} annotations were {eventSource}";
 			eventMessage = annotations.Aggregate (eventMessage, (current, annotation) =>
