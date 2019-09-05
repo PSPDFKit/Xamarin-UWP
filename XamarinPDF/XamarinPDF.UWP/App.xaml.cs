@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -29,7 +30,11 @@ namespace XamarinPDF.UWP {
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            // Get the license key from App.xaml
+            var license = Current.Resources.MergedDictionaries.FirstOrDefault(r => r.ContainsKey("PSPDFKitLicense"))?["PSPDFKitLicense"]?.ToString();
 
+            // Initialize PSPDFKit
+            PSPDFKit.Sdk.Initialize(license);
 
             Frame rootFrame = Window.Current.Content as Frame;
 

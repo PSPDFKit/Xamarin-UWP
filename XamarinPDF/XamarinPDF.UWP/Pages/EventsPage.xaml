@@ -42,7 +42,6 @@
 				<Grid>
 					<ui:PdfView
                         x:Name="PDFView"
-                        License="{StaticResource PSPDFKitLicense}"
                         PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" />
 				</Grid>
 			</SplitView>

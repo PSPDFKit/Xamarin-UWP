@@ -60,7 +60,6 @@
 					<Grid Grid.Row="0">
 						<ui:PdfView
                             x:Name="PDFView"
-                            License="{StaticResource PSPDFKitLicense}"
                             MessageBoxText="Click on a result to display the document here." />
 					</Grid>
 					<Grid Grid.Row="1">

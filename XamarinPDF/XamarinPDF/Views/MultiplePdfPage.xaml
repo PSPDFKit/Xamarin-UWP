@@ -20,8 +20,8 @@
 					<ColumnDefinition Width="*" />
 					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
-				<views:PdfViewer Grid.Column="0" License="{StaticResource PSPDFKitLicense}" PdfUriSource="ms-appx:///Assets/pdfs/PSPDFKit.pdf" />
-				<views:PdfViewer Grid.Column="1" License="{StaticResource PSPDFKitLicense}" PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" />
+				<views:PdfViewer Grid.Column="0" PdfUriSource="ms-appx:///Assets/pdfs/PSPDFKit.pdf" />
+				<views:PdfViewer Grid.Column="1" PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" />
 			</Grid>
 		</Grid>
 	</ContentPage.Content>

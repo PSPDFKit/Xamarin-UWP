@@ -23,7 +23,7 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="50"/>
 				</Grid.RowDefinitions>
-				<views:PdfViewer Grid.Row="0" License="{StaticResource PSPDFKitLicense}" PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" x:Name="PdfView"/>
+				<views:PdfViewer Grid.Row="0" PdfUriSource="ms-appx:///Assets/pdfs/default.pdf" x:Name="PdfView"/>
 				<StackLayout Grid.Row="1" Orientation="Horizontal">
 					<Button Text="Create Ink Annotation" Command="{Binding CreateInkAnnotationCommand}" CommandParameter="{Binding Source={x:Reference PdfView}}" Margin="0,0,10,0"/>
 					<Button Text="Create Text Annotation" Command="{Binding CreateAndUpdateTextAnnotationCommand}" CommandParameter="{Binding Source={x:Reference PdfView}}"/>
