@@ -26,9 +26,9 @@ In order to build this project you need:
 
 ### Running the sample project
 
-Open `XamarinPDF.sln` using Visual Studio 2017 and add your license key as a String value in the `App.xaml` files listed below:
+Open `XamarinPDF.sln` using Visual Studio add your license key as a String value in the `App.xaml` files listed below:
 
-* [XamarinPDF/XamarinPDF/App.xaml](XamarinPDF/XamarinPDF/App.xaml)
+* [XamarinPDF/XamarinPDF.UWP/App.xaml](XamarinPDF/XamarinPDF.UWP/App.xaml)
 
 Replace `LICENSE_KEY_GOES_HERE` with your provided license from the PSPDFKit customer portal or trial key.
 
