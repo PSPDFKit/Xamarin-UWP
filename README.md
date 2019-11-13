@@ -20,13 +20,15 @@ In order to build this project you need:
 
 * Windows 10
 * Visual Studio 2017 or 2019
-* PSPDFKit for Windows.vsix Visual Studio Extension ([get your trial here](https://pspdfkit.com/try/))
+* PSPDFKit for Windows NuGet package. ([get your trial here](https://pspdfkit.com/try/))
 * [Visual Studio Tools for Xamarin](https://visualstudio.microsoft.com/xamarin/)
 * Getting familiar with [Xamarin.Forms UWP project setup](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/platform/windows/installation/).
 
 ### Running the sample project
 
-Open `XamarinPDF.sln` using Visual Studio add your license key as a String value in the `App.xaml` files listed below:
+First place the PSPDFKit for Windows NuGet package file in the directory `\Xamarin-UWP\nuget\`. You can find this in the SDK zip file.
+
+Open `XamarinPDF.sln` using Visual Studio and add your license key as a String value in the `App.xaml` files listed below:
 
 * [XamarinPDF/XamarinPDF.UWP/App.xaml](XamarinPDF/XamarinPDF.UWP/App.xaml)
 
@@ -34,15 +36,11 @@ Replace `LICENSE_KEY_GOES_HERE` with your provided license from the PSPDFKit cus
 
 ```xaml
 <ResourceDictionary>
-    <x:String x:Key="PSPDFKitLicense"> LICENSE_KEY_GOES_HERE </x:String>
+    <x:String x:Key="PSPDFKitLicense">LICENSE_KEY_GOES_HERE</x:String>
 </ResourceDictionary>
 ```
 
-Now you can build and run the sample project.
-
-**Note**:
-> You do not need `PSPDFKitLicense` to be present in both `App.xaml` in your actual application, in this provided project we are just demonstrating that the license initialization can be done either from Xamarin.Forms or the actual UWP project; you can choose just one of the `App.xaml` files to host the `PSPDFKitLicense `.
-
+You can now build and run the project.
 
 ## Using PSPDFKit for Windows in your Xamarin.Forms UWP project
 
