@@ -38,7 +38,7 @@ Replace `LICENSE_KEY_GOES_HERE` with your provided license from the PSPDFKit cus
 </ResourceDictionary>
 ```
 
-Once you set the license key in both files you will be able to build and run the sample project.
+Now you can build and run the sample project.
 
 **Note**:
 > You do not need `PSPDFKitLicense` to be present in both `App.xaml` in your actual application, in this provided project we are just demonstrating that the license initialization can be done either from Xamarin.Forms or the actual UWP project; you can choose just one of the `App.xaml` files to host the `PSPDFKitLicense `.
