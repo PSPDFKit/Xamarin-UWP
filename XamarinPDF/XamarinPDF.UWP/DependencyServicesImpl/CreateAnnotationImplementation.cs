@@ -10,7 +10,6 @@ using PSPDFKit.Pdf.Annotation;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Windows.Foundation;
 using Windows.UI;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
@@ -18,6 +17,7 @@ using XamarinPDF.DependencyServices;
 using XamarinPDF.UWP.DependencyServicesImpl;
 using XamarinPDF.UWP.PageRenderers;
 using XamarinPDF.Views;
+using Rect = Windows.Foundation.Rect;
 
 [assembly: Dependency (typeof (CreateAnnotationImplementation))]
 namespace XamarinPDF.UWP.DependencyServicesImpl {
@@ -30,7 +30,7 @@ namespace XamarinPDF.UWP.DependencyServicesImpl {
 				return;
 
 			// First, we define the bounding box of the annotation on the page.
-			var boundingBox = new Rect (100, 100, 50, 75);
+			var boundingBox = new Rect(100, 100, 50, 75);
 
 			// Now we specify which lines we want to draw. 
 			var lines = new List<IList<DrawingPoint>> {

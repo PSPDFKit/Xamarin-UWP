@@ -88,7 +88,7 @@ namespace XamarinPDF.UWP.ViewModels {
 
 			// Clear the search results and execute the search.
 			SearchResults.Clear ();
-			TextSearcher.SearchDocument (PdfView.Document, new Query (inputBox.Text));
+			TextSearcher.SearchDocument (PdfView.Document, Query.FromText(inputBox.Text));
 		}
 
 		/// <summary>
