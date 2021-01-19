@@ -89,7 +89,7 @@ namespace XamarinPDF.UWP.ViewModels {
 
 		async void Library_OnStartIndexingDocument (Library sender, string uid)
 		{
-			var document = await DocumentSource.CreateFromUidAsync (uid);
+			var document = await DocumentSource.CreateFromStorageFileUidAsync(uid);
 			// This handler is called on a non-UI thread so we need to dispatch on a
 			// UI thread any interaction with the UI
 			var message = new EventEntry ($"Started indexing '{document.GetFile ().Name}'", uid);
@@ -100,7 +100,7 @@ namespace XamarinPDF.UWP.ViewModels {
 
 		async void Library_OnFinishedIndexingDocument (Library sender, LibraryIndexingSuccess args)
 		{
-			var document = await DocumentSource.CreateFromUidAsync (args.Uid);
+			var document = await DocumentSource.CreateFromStorageFileUidAsync(args.Uid);
 			// This handler is called on a non-UI thread so we need to dispatch on a
 			// UI thread any interaction with the UI
 #pragma warning disable 4014
@@ -168,7 +168,7 @@ namespace XamarinPDF.UWP.ViewModels {
 				// Get the document from its UID
 				DocumentSource document;
 				try {
-					document = await DocumentSource.CreateFromUidAsync (libraryResult.Key);
+					document = await DocumentSource.CreateFromStorageFileUidAsync(libraryResult.Key);
 				} catch (System.IO.FileNotFoundException) {
 					// Document must be gone from the file system. Let's remove it from the library.
 					await _Library.RemoveDocumentAsync (libraryResult.Key);
@@ -202,7 +202,7 @@ namespace XamarinPDF.UWP.ViewModels {
 				// Get the document from its UID
 				DocumentSource document;
 				try {
-					document = await DocumentSource.CreateFromUidAsync (preview.Uid);
+					document = await DocumentSource.CreateFromStorageFileUidAsync(preview.Uid);
 				} catch (System.IO.FileNotFoundException) {
 					// Document must be gone from the file system. Let's remove it from the library.
 					await _Library.RemoveDocumentAsync (preview.Uid);
