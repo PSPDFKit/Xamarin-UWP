@@ -5,19 +5,19 @@
     xmlns:local="using:XamarinPDF.UWP"
     RequestedTheme="Light">
 
-	<Application.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="/Styles/_Colors.xaml" />
-				<ResourceDictionary Source="/Styles/_FontSizes.xaml" />
-				<ResourceDictionary Source="/Styles/_Thickness.xaml" />
-				<ResourceDictionary Source="/Styles/TextBlock.xaml" />
-				<ResourceDictionary Source="/Styles/Page.xaml" />
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/_Colors.xaml" />
+                <ResourceDictionary Source="/Styles/_FontSizes.xaml" />
+                <ResourceDictionary Source="/Styles/_Thickness.xaml" />
+                <ResourceDictionary Source="/Styles/TextBlock.xaml" />
+                <ResourceDictionary Source="/Styles/Page.xaml" />
                 <ResourceDictionary>
-                    <x:String x:Key="PSPDFKitLicense">YOUR_LICENSE_KEY_GOES_HERE</x:String>
+                    <x:String x:Key="PSPDFKitLicense"></x:String>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-	</Application.Resources>
+    </Application.Resources>
 
 </Application>
