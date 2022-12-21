@@ -12,47 +12,46 @@ using XamarinPDF.Models;
 
 namespace XamarinPDF.Views {
 	[XamlCompilation (XamlCompilationOptions.Compile)]
-	public partial class MainPage : MasterDetailPage {
-		readonly Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage> ();
+	public partial class MainPage : FlyoutPage {
+		readonly Dictionary<int, NavigationPage> _menuPages = new Dictionary<int, NavigationPage> ();
 
 		public MainPage()
 		{
 			InitializeComponent ();
 
-			MasterBehavior = MasterBehavior.Split;
-			MenuPages.Add ((int) MenuItemType.Playground, (NavigationPage) Detail);
+            _menuPages.Add ((int) MenuItemType.Playground, (NavigationPage) Detail);
 		}
 
 		public void NavigateFromMenu (int id)
 		{
-			if (!MenuPages.ContainsKey (id)) {
+			if (!_menuPages.ContainsKey (id)) {
 				if (id == (int) MenuItemType.Playground)
-					MenuPages.Add (id, new NavigationPage (new PlaygroundPage ()));
+                    _menuPages.Add (id, new NavigationPage (new PlaygroundPage ()));
 				else if (id == (int) MenuItemType.OpenAndExportFile)
-					MenuPages.Add (id, new NavigationPage (new OpenAndExportFilePage ()));
+                    _menuPages.Add (id, new NavigationPage (new OpenAndExportFilePage ()));
 				else if (id == (int) MenuItemType.PasswordDialog)
-					MenuPages.Add (id, new NavigationPage (new PasswordDialogPageContainer ()));
+                    _menuPages.Add (id, new NavigationPage (new PasswordDialogPageContainer ()));
 				else if (id == (int) MenuItemType.CreateAnnotation)
-					MenuPages.Add (id, new NavigationPage (new CreateAnnotationPage ()));
+					_menuPages.Add (id, new NavigationPage (new CreateAnnotationPage ()));
 				else if (id == (int) MenuItemType.Print)
-					MenuPages.Add (id, new NavigationPage (new PrintPageContainer ()));
+                    _menuPages.Add (id, new NavigationPage (new PrintPageContainer ()));
 				else if (id == (int) MenuItemType.Search)
-					MenuPages.Add (id, new NavigationPage (new SearchPageContainer ()));
+                    _menuPages.Add (id, new NavigationPage (new SearchPageContainer ()));
 				else if (id == (int) MenuItemType.ToolbarItems)
-					MenuPages.Add (id, new NavigationPage (new ToolbarItemsPage ()));
+                    _menuPages.Add (id, new NavigationPage (new ToolbarItemsPage ()));
 				else if (id == (int) MenuItemType.Events)
-					MenuPages.Add (id, new NavigationPage (new EventsPageContainer ()));
+                    _menuPages.Add (id, new NavigationPage (new EventsPageContainer ()));
 				else if (id == (int) MenuItemType.FullTextSearch)
-					MenuPages.Add (id, new NavigationPage (new FullTextSearchPageContainer ()));
+                    _menuPages.Add (id, new NavigationPage (new FullTextSearchPageContainer ()));
 				else if (id == (int) MenuItemType.CustomCss)
-					MenuPages.Add (id, new NavigationPage (new CustomCssPage ()));
+                    _menuPages.Add (id, new NavigationPage (new CustomCssPage ()));
 				else if (id == (int) MenuItemType.MultiplePdf)
-					MenuPages.Add (id, new NavigationPage (new MultiplePdfPage ()));
+                    _menuPages.Add (id, new NavigationPage (new MultiplePdfPage ()));
 				else if (id == (int) MenuItemType.About)
-					MenuPages.Add (id, new NavigationPage (new AboutPage ()));
+                    _menuPages.Add (id, new NavigationPage (new AboutPage ()));
 			}
 
-			var newPage = MenuPages [id];
+			var newPage = _menuPages[id];
 
 			if (newPage != null && Detail != newPage) {
 				Detail = newPage;

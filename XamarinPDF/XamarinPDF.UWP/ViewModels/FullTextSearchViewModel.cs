@@ -5,18 +5,20 @@
 //  Please see License for details. This notice may not be removed from this file.
 //
 
+using Microsoft.Toolkit.Uwp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Windows.Storage.Pickers;
-using Microsoft.Toolkit.Uwp.Helpers;
 using PSPDFKit.Document;
 using PSPDFKit.Search;
 using PSPDFKit.UI;
 using PSPDFKitFoundation.Search;
 using XamarinPDF.UWP.Helpers;
+using System.ServiceModel.Channels;
+using Windows.System;
 
 namespace XamarinPDF.UWP.ViewModels {
 	/// <summary>
@@ -62,11 +64,13 @@ namespace XamarinPDF.UWP.ViewModels {
 
 		Library _Library;
 
-		/// <summary>
-		/// If you don't use the 'using' statement to automatically dispose of the Library don't forget to call it when
-		/// you are finished with the Library. For example, when navigating away from a page.
-		/// </summary>
-		public void DisposeOfLibrary () => _Library?.Dispose ();
+        private readonly DispatcherQueue _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
+        /// <summary>
+        /// If you don't use the 'using' statement to automatically dispose of the Library don't forget to call it when
+        /// you are finished with the Library. For example, when navigating away from a page.
+        /// </summary>
+        public void DisposeOfLibrary () => _Library?.Dispose ();
 
 		internal async void Initialize (PdfView pdfView)
 		{
@@ -94,9 +98,9 @@ namespace XamarinPDF.UWP.ViewModels {
 			// UI thread any interaction with the UI
 			var message = new EventEntry ($"Started indexing '{document.GetFile ().Name}'", uid);
 #pragma warning disable 4014
-			DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (message));
+            _dispatcherQueue.EnqueueAsync(() => Events.Add(message));
 #pragma warning restore 4014
-		}
+        }
 
 		async void Library_OnFinishedIndexingDocument (Library sender, LibraryIndexingSuccess args)
 		{
@@ -104,12 +108,13 @@ namespace XamarinPDF.UWP.ViewModels {
 			// This handler is called on a non-UI thread so we need to dispatch on a
 			// UI thread any interaction with the UI
 #pragma warning disable 4014
-			DispatcherHelper.ExecuteOnUIThreadAsync (() =>
+            _dispatcherQueue.EnqueueAsync(() =>
 #pragma warning restore 4014
-			{
+            {
 				var success = args.Success ? "successfully" : "unsuccessfully";
 				Events.Add (new EventEntry ($"Finished indexing '{document.GetFile ().Name}' {success}", args.Uid));
 			});
+			
 		}
 
 		public async void AddFolderToLibrary ()
@@ -161,9 +166,9 @@ namespace XamarinPDF.UWP.ViewModels {
 		/// <param name="args">The results of the search, if any.</param>
 		async void Library_OnSearchComplete (Library library, IDictionary<string, LibraryQueryResult> args)
 		{
-			await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (new EventEntry ("Search complete")));
+            await _dispatcherQueue.EnqueueAsync(() => Events.Add(new EventEntry("Search complete")));
 
-			var count = 0;
+            var count = 0;
 			foreach (var libraryResult in args) {
 				// Get the document from its UID
 				DocumentSource document;
@@ -181,12 +186,13 @@ namespace XamarinPDF.UWP.ViewModels {
 				resultText += $"With results found on pages {pageList}\n";
 
 				var eventEntry = new EventEntry (resultText, resultText) { Document = document };
-				await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (eventEntry));
-				count++;
+                await _dispatcherQueue.EnqueueAsync(() => Events.Add(eventEntry));
+                count++;
 			}
 
-			await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (new EventEntry ($"Found {count} results")));
-		}
+            await _dispatcherQueue.EnqueueAsync(() => Events.Add(new EventEntry($"Found {count} results")));
+
+        }
 
 		/// <summary>
 		/// This handler recieves the result previews if they were requested in the <see cref="Query"/>
@@ -195,9 +201,9 @@ namespace XamarinPDF.UWP.ViewModels {
 		/// <param name="args">The result previews of the search, if any.</param>
 		async void Library_OnResultPreviewGenerationComplete (Library library, IList<LibraryPreviewResult> args)
 		{
-			await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (new EventEntry ("Preview generation complete")));
+            await _dispatcherQueue.EnqueueAsync(() => Events.Add(new EventEntry("Preview generation complete")));
 
-			var count = 0;
+            var count = 0;
 			foreach (var preview in args) {
 				// Get the document from its UID
 				DocumentSource document;
@@ -213,12 +219,12 @@ namespace XamarinPDF.UWP.ViewModels {
 					Document = document,
 					PageIndex = preview.PageIndex
 				};
-				await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (eventEntry));
-				count++;
+                await _dispatcherQueue.EnqueueAsync(() => Events.Add(eventEntry));
+                count++;
 			}
 
-			await DispatcherHelper.ExecuteOnUIThreadAsync (() => Events.Add (new EventEntry ($"Found {count} preview results")));
-		}
+            await _dispatcherQueue.EnqueueAsync(() => Events.Add(new EventEntry($"Found {count} preview results")));
+        }
 
 		internal async void ShowDocument (DocumentSource document, int pageIndex)
 		{
