@@ -11,7 +11,11 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 - Xamarin.Android Bindings for PSPDFKit for Android: [PSPDFKit/Xamarin-Android](https://github.com/PSPDFKit/Xamarin-Android)
 - Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 
-<blockquote><b>Note</b>:</br>- Nutrient Xamarin SDK (formerly PSPDFKit Xamarin for iOS and PSPDFKit Xamarin for Android) has been deprecated and replaced by <a href='https://www.nutrient.io/guides/ios/dotnet/'>Nutrient .NET for iOS</a> and <a href='https://www.nutrient.io/guides/android/dotnet/'>Nutrient .NET for Android</a>. All Nutrient Xamarin licenses will remain valid and fully supported until 1 December 2025, or until your license expires, whichever occurs later.</br>- Nutrient UWP SDK (formerly PSPDFKit for Windows) has been deprecated, in line with <a href='https://learn.microsoft.com/en-us/windows/apps/get-started/windows-developer-faq#deprecations-and-migrations'>Microsoft’s decision</a> to gradually phase out UWP by limiting updates to bug fixes and security patches. All Nutrient UWP licenses will continue to work and be supported until 1 December 2026, or until your license expires, whichever occurs later.</br> Interested in transitioning to another Nutrient product? <a href='https://www.nutrient.io/company/contact'>Contact us</a> and we’ll be happy to help.</blockquote>
+> [!NOTE] 
+> - Nutrient Xamarin SDK (formerly PSPDFKit Xamarin for iOS and PSPDFKit Xamarin for Android) has been deprecated and replaced by <a href='https://www.nutrient.io/guides/ios/dotnet/'>Nutrient .NET for iOS</a> and <a href='https://www.nutrient.io/guides/android/dotnet/'>Nutrient .NET for Android</a>. All Nutrient Xamarin licenses will remain valid and fully supported until 1 December 2025, or until your license expires, whichever occurs later.
+> - Nutrient UWP SDK (formerly PSPDFKit for Windows) has been deprecated, in line with <a href='https://learn.microsoft.com/en-us/windows/apps/get-started/windows-developer-faq#deprecations-and-migrations'>Microsoft’s decision</a> to gradually phase out UWP by limiting updates to bug fixes and security patches. All Nutrient UWP licenses will continue to work and be supported until 1 December 2026, or until your license expires, whichever occurs later.
+>
+> Interested in transitioning to another Nutrient product? <a href='https://www.nutrient.io/company/contact'>Contact us</a> and we’ll be happy to help.
 
 ## Support, Issues and License Questions
 
